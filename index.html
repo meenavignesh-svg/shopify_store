@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sustainable Sewage System 3D Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.165.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.165.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="scene-panel" aria-label="3D anaerobic digestion simulation">
+        <canvas id="simulation"></canvas>
+        <div class="scene-overlay">
+          <p class="label">Live Concept Simulation</p>
+          <h1>Sustainable Sewage System</h1>
+          <p>
+            Wastewater sludge, urban waste heat, biomethane recovery, and PHB
+            carbon valorization in one interactive process model.
+          </p>
+        </div>
+        <div class="legend" aria-label="Simulation legend">
+          <span><i class="heat"></i>Waste heat loop</span>
+          <span><i class="methane"></i>CH4 bubbles</span>
+          <span><i class="co2"></i>CO2 to PHB loop</span>
+          <span><i class="sensor"></i>pH/VFA sensors</span>
+        </div>
+      </section>
+
+      <aside class="control-panel" aria-label="Simulation controls">
+        <div>
+          <p class="label">Bioprocess Status</p>
+          <h2>Mesophilic Reactor</h2>
+        </div>
+
+        <div class="metric">
+          <span>Temperature</span>
+          <strong id="temperature">37.0°C</strong>
+        </div>
+        <input id="temperatureSlider" type="range" min="30" max="45" value="37" step="0.1" aria-label="Temperature">
+
+        <div class="metric">
+          <span>Organic Load</span>
+          <strong id="loadValue">62%</strong>
+        </div>
+        <input id="loadSlider" type="range" min="20" max="95" value="62" step="1" aria-label="Organic load">
+
+        <div class="status-grid">
+          <div>
+            <span>Methane Potential</span>
+            <strong id="methaneScore">High</strong>
+          </div>
+          <div>
+            <span>Reactor Risk</span>
+            <strong id="riskScore">Stable</strong>
+          </div>
+          <div>
+            <span>PHB Loop</span>
+            <strong id="phbScore">Active</strong>
+          </div>
+          <div>
+            <span>Safety Gate</span>
+            <strong id="gateScore">Open</strong>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button id="toggleFlow" type="button">Pause Flow</button>
+          <button id="resetView" type="button">Reset View</button>
+        </div>
+
+        <section class="notes">
+          <h3>What This Shows</h3>
+          <p>
+            This is a conceptual visualization. It does not claim experimental
+            yield data. The simulation highlights process logic, risk zones, and
+            where calculations or lab validation should be added.
+          </p>
+        </section>
+      </aside>
+    </main>
+
+    <script type="module" src="simulation.js"></script>
+  </body>
+</html>
